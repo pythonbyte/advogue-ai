@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advogue.ai — Demo</title>
+    <meta
+      name="description"
+      content="Veja em 30 segundos: publicação, interpretação, prazo e o trecho do diário que sustenta a ação."
+    />
+    <meta name="theme-color" content="#f3f4f1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://advogue.ai/demo/" />
+    <meta property="og:title" content="Advogue.ai — Demo" />
+    <meta
+      property="og:description"
+      content="Publicação → interpretação → prazo → você decide."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://advogue.ai/demo/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="mark" href="/" aria-label="Advogue.ai">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1c1c1b" />
+          <path
+            d="M9 24 L16 8 L23 24 M11.6 18.2 H20.4"
+            fill="none"
+            stroke="#f3f4f1"
+            stroke-width="2.1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span>Advogue.ai</span>
+      </a>
+      <nav class="nav">
+        <a href="/demo/" aria-current="page">Demo</a>
+        <a href="/#piloto">Piloto</a>
+      </nav>
+      <p class="status">
+        <span class="dot"></span>
+        Exemplo
+      </p>
+    </header>
+
+    <main>
+      <section class="copy">
+        <p class="eyebrow">Uma publicação. Trinta segundos.</p>
+        <h1>A IA mostra o que leu. Você decide o resto.</h1>
+        <p class="lede">
+          Caso ilustrativo e anonimizado. Não é um processo real.
+        </p>
+      </section>
+
+      <section class="flow" aria-label="Do diário à ação">
+        <article class="flow-step">
+          <h2>Publicação</h2>
+          <p>
+            PROCEDIMENTO COMUM CÍVEL. RÉU: Norte Saúde Cooperativa de Trabalho
+            Médico. ADVOGADO(A): Maria Silva (OAB SP 123456). Intimação realizada
+            no sistema eproc. Vista às partes para especificarem as provas que
+            pretendem produzir, no prazo de 15 dias úteis, justificando-as, e
+            ratificando as requeridas anteriormente.
+          </p>
+        </article>
+        <p class="flow-arrow" aria-hidden="true">↓ IA</p>
+        <article class="flow-step">
+          <dl class="flow-result">
+            <div>
+              <dt>Ação identificada</dt>
+              <dd>Especificar provas</dd>
+            </div>
+            <div>
+              <dt>Prazo</dt>
+              <dd>15 dias úteis</dd>
+            </div>
+            <div>
+              <dt>Data final</dt>
+              <dd>15/09/2026</dd>
+            </div>
+            <div>
+              <dt>Evidência</dt>
+              <dd class="flow-evidence">
+                “…especificarem as provas que pretendem produzir,
+                <mark>no prazo de 15 dias úteis</mark>…”
+              </dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="split" aria-label="Como o trabalho muda">
+        <article>
+          <h2>Antes</h2>
+          <p>
+            Advogado: abre o diário → procura o processo → lê a publicação →
+            interpreta → calcula o prazo → cria a tarefa.
+          </p>
+        </article>
+        <article>
+          <h2>Depois</h2>
+          <p>Advogue: publicação → interpretação → prazo → tarefa.</p>
+        </article>
+      </section>
+
+      <p>
+        <a class="demo-cta" href="/#piloto">Quero testar com meu escritório</a>
+      </p>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© <span id="year"></span> Advogue.ai</p>
+        <p>Publicação → interpretação → ação. Você aprova.</p>
+      </div>
+    </footer>
+
+    <script>
+      const year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>
