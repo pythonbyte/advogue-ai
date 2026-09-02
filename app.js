@@ -20,10 +20,14 @@
   }
 
   function collect() {
+    const oab = read("oab").replace(/\D/g, "");
+    const oabUf = read("oab_uf").toUpperCase();
     return {
       name: read("name"),
       email: read("email").toLowerCase(),
-      oabs: read("oabs"),
+      oab: oab,
+      oab_uf: oabUf,
+      oabs: oab && oabUf ? oab + "/" + oabUf : "",
       area: read("area"),
       lawyers: read("lawyers"),
       caseload: read("caseload"),
@@ -37,6 +41,9 @@
     }
     if (!EMAIL_RE.test(data.email)) {
       return "Informe um e-mail válido.";
+    }
+    if (!/^\d{4,7}$/.test(data.oab) || !data.oab_uf) {
+      return "Informe a OAB e o UF.";
     }
     if (!data.area || !data.lawyers || !data.caseload) {
       return "Complete área, tamanho do escritório e volume de processos.";

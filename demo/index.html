@@ -6,7 +6,7 @@
     <title>Advogue.ai — Demo</title>
     <meta
       name="description"
-      content="Veja em 30 segundos: publicação, interpretação, prazo e o trecho do diário que sustenta a ação."
+      content="Veja o inbox do Advogue.ai: publicação, próximo passo, prazo fatal e o trecho do diário que sustenta a interpretação."
     />
     <meta name="theme-color" content="#f3f4f1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -26,7 +26,7 @@
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
+  <body class="page-demo">
     <header class="top">
       <a class="mark" href="/" aria-label="Advogue.ai">
         <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
@@ -52,36 +52,40 @@
       </p>
     </header>
 
-    <main>
-      <section class="copy">
-        <p class="eyebrow">Uma publicação. Trinta segundos.</p>
-        <h1>A IA mostra o que leu. Você decide o resto.</h1>
-        <p class="lede">
-          Caso ilustrativo e anonimizado. Não é um processo real.
-        </p>
-      </section>
+    <main class="demo-main">
+      <div class="demo-bar">
+        <h1 class="demo-head">A publicação já chega interpretada: o que fazer, prazo e evidência.</h1>
+        <a class="demo-cta" href="/#piloto">Quero testar com meu escritório</a>
+      </div>
 
-      <section class="flow" aria-label="Do diário à ação">
-        <article class="flow-step">
-          <h2>Publicação</h2>
-          <p>
-            … Vistos. Certidão de intimação. Disponibilização no DJEN. Cadastro
-            de partes e advogados. Movimentações anteriores nos autos.
-            Juntada de petições. Despachos de mero expediente. …
-            PROCEDIMENTO COMUM CÍVEL. RÉU: Norte Saúde Cooperativa de Trabalho
-            Médico. ADVOGADO(A): Maria Silva (OAB SP 123456). …
-            Intimação realizada no sistema eproc. Vista às partes para
-            especificarem as provas que pretendem produzir, no prazo de 15 dias
-            úteis, justificando-as, e ratificando as requeridas anteriormente.
-            …
-          </p>
-        </article>
-        <p class="flow-arrow" aria-hidden="true">↓ IA</p>
-        <article class="flow-step">
-          <dl class="flow-result">
+      <div class="dash" aria-label="Imitação do dashboard">
+        <aside class="dash-side">
+          <p class="dash-brand">Advogue.ai</p>
+          <p class="dash-label">Fila</p>
+          <p class="dash-nav is-active">Pendentes <span>1</span></p>
+          <p class="dash-nav">Processados <span>0</span></p>
+          <p class="dash-label">Autos</p>
+          <p class="dash-nav">Processos</p>
+        </aside>
+
+        <div class="dash-main">
+          <p class="dash-crumb">← Pendentes</p>
+          <div class="dash-title">
             <div>
-              <dt>Ação identificada</dt>
-              <dd>Especificar provas</dd>
+              <h2>0001234-12.2026.8.26.0100</h2>
+              <p>DJEN · 26/08/2026</p>
+            </div>
+            <span class="dash-badge">Alta</span>
+          </div>
+
+          <dl class="dash-meta">
+            <div>
+              <dt>Origem</dt>
+              <dd>DJEN</dd>
+            </div>
+            <div>
+              <dt>Peça a elaborar</dt>
+              <dd>Especificação de provas</dd>
             </div>
             <div>
               <dt>Prazo</dt>
@@ -92,32 +96,62 @@
               <dd>15/09/2026</dd>
             </div>
             <div>
-              <dt>Evidência</dt>
-              <dd class="flow-evidence">
-                “…especificarem as provas que pretendem produzir,
-                <mark>no prazo de 15 dias úteis</mark>…”
-              </dd>
+              <dt>Confiança da interpretação</dt>
+              <dd>Alta</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Pendente</dd>
             </div>
           </dl>
-        </article>
-      </section>
 
-      <section class="split" aria-label="Como o trabalho muda">
-        <article>
-          <h2>Antes</h2>
-          <p>
-            Advogado: abre o diário → procura o processo → lê a publicação →
-            interpreta → calcula o prazo → cria a tarefa.
+          <section class="dash-pack">
+            <article class="dash-card">
+              <h3>O que aconteceu</h3>
+              <p>Intimação para especificação de provas.</p>
+            </article>
+            <article class="dash-card">
+              <h3>Sugestão de próximo passo</h3>
+              <p>
+                Apresentar especificação de provas. 15 dias úteis, fatal
+                15/09/2026. O lastro é o trecho marcado abaixo. Você aprova,
+                corrige ou ignora — a peça em si fica com o advogado.
+              </p>
+            </article>
+          </section>
+
+          <section class="dash-card">
+            <h3>Texto bruto</h3>
+            <p>
+              … Disponibilização no Diário de Justiça. Intimação eletrônica.
+              Certidão de publicação. Cadastro processual. Movimentações
+              anteriores. Despachos de mero expediente. Juntada de petições. …
+              Vista às partes para especificarem as provas que pretendem
+              produzir, no prazo de 15 dias úteis, justificando-as, e
+              ratificando as requeridas anteriormente. Ficam as partes
+              cientes. Decorrido o prazo, os autos voltarão conclusos. …
+            </p>
+          </section>
+
+          <section class="dash-card">
+            <h3>Trechos de origem</h3>
+            <p>
+              prazo:
+              <mark>no prazo de 15 dias úteis</mark>
+            </p>
+          </section>
+
+          <p class="quadro-actions" aria-hidden="true">
+            <span class="is-primary">Aprovar</span>
+            <span>Corrigir</span>
+            <span>Ignorar</span>
           </p>
-        </article>
-        <article>
-          <h2>Depois</h2>
-          <p>Advogue: publicação → interpretação → prazo → tarefa.</p>
-        </article>
-      </section>
+        </div>
+      </div>
 
-      <p>
-        <a class="demo-cta" href="/#piloto">Quero testar com meu escritório</a>
+      <p class="dash-caption">
+        Imitação do inbox. Caso ilustrativo. Não é um processo real. Nenhum
+        nome de parte ou advogado.
       </p>
     </main>
 

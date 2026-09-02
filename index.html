@@ -55,9 +55,6 @@
     <main>
       <section class="hero">
         <div class="copy">
-          <p class="eyebrow">
-            Escritórios de contencioso, 3–30 advogados. Programa fundadores.
-          </p>
           <h1>A IA mostra o que leu. Você decide o resto.</h1>
           <p class="kicker">Pare de gastar tempo fazendo triagem de publicação.</p>
           <p class="lede">
@@ -66,7 +63,6 @@
             oficial que sustenta a interpretação. Quando falta certeza, o alerta
             sobe — em vez de ficar em silêncio.
           </p>
-          <p class="proof">Em teste com escritórios de contencioso.</p>
         </div>
 
         <aside class="quadro" aria-label="Exemplo ilustrativo de triagem">
@@ -75,18 +71,13 @@
             <span>0001234-12.2026.8.26.0100</span>
             <span>DJEN · 26/08/2026</span>
           </div>
-          <p class="quadro-capa">
-            … Vistos. Certidão de intimação. Disponibilização no DJEN. Cadastro
-            de partes e advogados. Movimentações anteriores. …
-            PROCEDIMENTO COMUM CÍVEL. RÉU: Norte Saúde Cooperativa de Trabalho
-            Médico. ADVOGADO(A): Maria Silva (OAB SP 123456). …
-          </p>
-          <p class="quadro-why">Por que a IA concluiu isso</p>
           <p class="quadro-trecho">
-            … Intimação realizada no sistema eproc. Vista às partes para
-            especificarem as provas que pretendem produzir,
-            <mark>no prazo de 15 dias úteis</mark>, justificando-as, e
-            ratificando as requeridas anteriormente. …
+            … Disponibilização no Diário de Justiça. Intimação eletrônica.
+            Certidão de publicação. Movimentações anteriores. Despachos de mero
+            expediente. Juntada. … Vista às partes para especificarem as provas
+            que pretendem produzir, <mark>no prazo de 15 dias úteis</mark>,
+            justificando-as, e ratificando as requeridas anteriormente. Ficam
+            as partes cientes. Após o decurso, os autos voltarão conclusos. …
           </p>
           <dl class="quadro-facts">
             <div>
@@ -94,7 +85,7 @@
               <dd>Intimação para especificação de provas.</dd>
             </div>
             <div>
-              <dt>O que fazer</dt>
+              <dt>Sugestão de próximo passo</dt>
               <dd>Apresentar manifestação especificando as provas.</dd>
             </div>
           </dl>
@@ -120,27 +111,16 @@
         </aside>
       </section>
 
-      <section class="split" aria-label="Como o trabalho muda">
-        <article>
-          <h2>Antes</h2>
-          <p>
-            Abre o diário → procura o processo → lê a publicação → interpreta →
-            calcula o prazo → cria a tarefa.
-          </p>
-        </article>
-        <article>
-          <h2>Depois</h2>
-          <p>Publicação → interpretação → evidência → prazo → você decide.</p>
-        </article>
-      </section>
+      <p class="band">
+        Interpretar publicações levava horas. Agora leva minutos.
+      </p>
 
       <section class="piloto" id="piloto">
         <div class="piloto-copy">
           <h2>Quero testar com meu escritório</h2>
           <p>
-            Estamos selecionando alguns escritórios de contencioso para o
-            programa fundadores. Não é lista de newsletter: é um convite para
-            testar a triagem com as publicações reais do escritório.
+            Deixe seus dados. Respondemos para marcar uma conversa curta sobre
+            a triagem — publicação, prazo e evidência, com aprovação humana.
           </p>
         </div>
 
@@ -161,15 +141,49 @@
                 required
               />
             </label>
-            <label class="full">
-              OAB(s)
-              <input
-                id="oabs"
-                name="oabs"
-                type="text"
-                placeholder="123456/SP"
-                autocomplete="off"
-              />
+            <label class="oab-field full">
+              OAB
+              <div class="oab-row">
+                <input
+                  id="oab"
+                  name="oab"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  placeholder="123456"
+                  required
+                />
+                <select id="oab_uf" name="oab_uf" required>
+                  <option value="" selected disabled>UF</option>
+                  <option value="AC">AC</option>
+                  <option value="AL">AL</option>
+                  <option value="AP">AP</option>
+                  <option value="AM">AM</option>
+                  <option value="BA">BA</option>
+                  <option value="CE">CE</option>
+                  <option value="DF">DF</option>
+                  <option value="ES">ES</option>
+                  <option value="GO">GO</option>
+                  <option value="MA">MA</option>
+                  <option value="MT">MT</option>
+                  <option value="MS">MS</option>
+                  <option value="MG">MG</option>
+                  <option value="PA">PA</option>
+                  <option value="PB">PB</option>
+                  <option value="PR">PR</option>
+                  <option value="PE">PE</option>
+                  <option value="PI">PI</option>
+                  <option value="RJ">RJ</option>
+                  <option value="RN">RN</option>
+                  <option value="RS">RS</option>
+                  <option value="RO">RO</option>
+                  <option value="RR">RR</option>
+                  <option value="SC">SC</option>
+                  <option value="SP">SP</option>
+                  <option value="SE">SE</option>
+                  <option value="TO">TO</option>
+                </select>
+              </div>
             </label>
             <label>
               Área de atuação
