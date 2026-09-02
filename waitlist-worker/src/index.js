@@ -33,6 +33,10 @@ function json(body, status, origin) {
   });
 }
 
+function clip(value, max) {
+  return String(value || "").trim().slice(0, max);
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
@@ -52,27 +56,34 @@ export default {
       return json({ error: "invalid_json" }, 400, origin);
     }
 
-    const email = String(payload.email || "")
-      .trim()
-      .toLowerCase();
-    const source = String(payload.source || "advogue.ai").slice(0, 80);
+    const email = clip(payload.email, 254).toLowerCase();
+    const name = clip(payload.name, 120);
+    const oabs = clip(payload.oabs, 200);
+    const area = clip(payload.area, 40);
+    const lawyers = clip(payload.lawyers, 20);
+    const caseload = clip(payload.caseload, 20);
+    const source = clip(payload.source, 80) || "advogue.ai";
 
-    if (!EMAIL_RE.test(email)) {
-      return json({ error: "invalid_email" }, 400, origin);
+    if (!EMAIL_RE.test(email) || name.length < 2) {
+      return json({ error: "invalid_payload" }, 400, origin);
     }
 
     const createdAt = new Date().toISOString();
     try {
       await env.DB.prepare(
-        "INSERT INTO waitlist (email, created_at, source) VALUES (?, ?, ?)",
+        `INSERT INTO waitlist (email, created_at, source, name, oabs, area, lawyers, caseload)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+         ON CONFLICT(email) DO UPDATE SET
+           source = excluded.source,
+           name = excluded.name,
+           oabs = excluded.oabs,
+           area = excluded.area,
+           lawyers = excluded.lawyers,
+           caseload = excluded.caseload`,
       )
-        .bind(email, createdAt, source)
+        .bind(email, createdAt, source, name, oabs, area, lawyers, caseload)
         .run();
     } catch (err) {
-      const message = String(err && err.message ? err.message : err);
-      if (message.includes("UNIQUE")) {
-        return json({ ok: true }, 200, origin);
-      }
       return json({ error: "unavailable" }, 503, origin);
     }
 

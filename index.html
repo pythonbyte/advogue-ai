@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advogue.ai — Aguarde</title>
+    <title>Advogue.ai — Triagem de publicações</title>
     <meta
       name="description"
-      content="Advogue.ai: triagem de publicações, prazos e andamentos para o escritório. Em breve."
+      content="Pare de gastar tempo fazendo triagem de publicação. O Advogue.ai lê, indica a ação e mostra o trecho do diário que sustenta a interpretação. Você aprova."
     />
     <meta name="theme-color" content="#f3f4f1" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://advogue.ai/" />
     <meta property="og:title" content="Advogue.ai" />
-    <meta property="og:description" content="A IA mostra o que leu. Você decide o resto." />
+    <meta
+      property="og:description"
+      content="A IA mostra o que leu. Você decide o resto."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://advogue.ai/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,33 +51,18 @@
     <main>
       <section class="hero">
         <div class="copy">
-          <p class="eyebrow">Programa piloto para escritórios de contencioso. Vagas limitadas.</p>
-          <h1>A IA mostra o que leu. Você decide o resto.</h1>
-          <p class="lede">
-            Nenhum sistema de monitoramento de publicação te mostra de onde tirou
-            cada prazo. Esse mostra. Toda extração vem com o trecho exato do diário
-            oficial que sustenta ela, e quando falta certeza, o alerta sobe em vez
-            de ficar em silêncio.
+          <p class="eyebrow">
+            Escritórios de contencioso, 3–30 advogados. Programa fundadores.
           </p>
-
-          <form id="waitlist" class="waitlist" novalidate>
-            <label class="sr-only" for="email">E-mail do escritório</label>
-            <div class="row">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                inputmode="email"
-                required
-                placeholder="seu@escritorio.com.br"
-              />
-              <button type="submit" id="submit">Entrar na lista de espera</button>
-            </div>
-            <p class="hint" id="hint">
-              Sem cobrança agora. Só avisamos quando abrir vaga no piloto.
-            </p>
-          </form>
+          <h1>A IA mostra o que leu. Você decide o resto.</h1>
+          <p class="kicker">Pare de gastar tempo fazendo triagem de publicação.</p>
+          <p class="lede">
+            Sua equipe não precisa ler 500 publicações. O Advogue.ai lê, identifica
+            o que exige ação e entrega o próximo passo com o trecho exato do diário
+            oficial que sustenta a interpretação. Quando falta certeza, o alerta
+            sobe — em vez de ficar em silêncio.
+          </p>
+          <p class="proof">Em teste com escritórios de contencioso.</p>
         </div>
 
         <aside class="quadro" aria-label="Exemplo ilustrativo de triagem">
@@ -87,12 +75,23 @@
             PROCEDIMENTO COMUM CÍVEL. RÉU: Norte Saúde Cooperativa de Trabalho
             Médico. ADVOGADO(A): Maria Silva (OAB SP 123456).
           </p>
+          <p class="quadro-why">Por que a IA concluiu isso</p>
           <p class="quadro-trecho">
             Intimação realizada no sistema eproc. Vista às partes para
             especificarem as provas que pretendem produzir,
             <mark>no prazo de 15 dias úteis</mark>, justificando-as, e
             ratificando as requeridas anteriormente.
           </p>
+          <dl class="quadro-facts">
+            <div>
+              <dt>O que aconteceu</dt>
+              <dd>Intimação para especificação de provas.</dd>
+            </div>
+            <div>
+              <dt>O que fazer</dt>
+              <dd>Apresentar manifestação especificando as provas.</dd>
+            </div>
+          </dl>
           <dl class="quadro-meta">
             <div>
               <dt>Prazo</dt>
@@ -103,18 +102,114 @@
               <dd>15/09/2026</dd>
             </div>
             <div>
-              <dt>Confiança</dt>
-              <dd>96%</dd>
+              <dt>Confiança da interpretação</dt>
+              <dd>Alta</dd>
             </div>
           </dl>
+          <p class="quadro-actions" aria-hidden="true">
+            <span class="is-primary">Aprovar</span>
+            <span>Corrigir</span>
+            <span>Ignorar</span>
+          </p>
         </aside>
+      </section>
+
+      <section class="split" aria-label="Como o trabalho muda">
+        <article>
+          <h2>Antes</h2>
+          <p>
+            Abre o diário → procura o processo → lê a publicação → interpreta →
+            calcula o prazo → cria a tarefa.
+          </p>
+        </article>
+        <article>
+          <h2>Depois</h2>
+          <p>Publicação → interpretação → evidência → prazo → você decide.</p>
+        </article>
+      </section>
+
+      <section class="piloto" id="piloto">
+        <div class="piloto-copy">
+          <h2>Quero testar com meu escritório</h2>
+          <p>
+            Estamos selecionando alguns escritórios de contencioso para o
+            programa fundadores. Não é lista de newsletter: é um convite para
+            testar a triagem com as publicações reais do escritório.
+          </p>
+        </div>
+
+        <form id="waitlist" class="waitlist" novalidate>
+          <div class="fields">
+            <label>
+              Nome
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              E-mail
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+              />
+            </label>
+            <label class="full">
+              OAB(s)
+              <input
+                id="oabs"
+                name="oabs"
+                type="text"
+                placeholder="123456/SP"
+                autocomplete="off"
+              />
+            </label>
+            <label>
+              Área de atuação
+              <select id="area" name="area" required>
+                <option value="" selected disabled>Selecione</option>
+                <option value="contencioso-massa">Contencioso de massa</option>
+                <option value="saude">Saúde / planos de saúde</option>
+                <option value="bancario">Contencioso bancário</option>
+                <option value="trabalhista">Trabalhista</option>
+                <option value="civel">Cível</option>
+                <option value="outro">Outra</option>
+              </select>
+            </label>
+            <label>
+              Advogados no escritório
+              <select id="lawyers" name="lawyers" required>
+                <option value="" selected disabled>Selecione</option>
+                <option value="1-2">1–2</option>
+                <option value="3-10">3–10</option>
+                <option value="11-30">11–30</option>
+                <option value="30+">Mais de 30</option>
+              </select>
+            </label>
+            <label class="full">
+              Processos aproximados
+              <select id="caseload" name="caseload" required>
+                <option value="" selected disabled>Selecione</option>
+                <option value="ate-100">Até 100</option>
+                <option value="100-500">100–500</option>
+                <option value="500-2000">500–2.000</option>
+                <option value="2000+">Mais de 2.000</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" id="submit">Quero testar com meu escritório</button>
+          <p class="hint" id="hint">
+            Sem cobrança agora. Respondemos para marcar uma conversa curta.
+          </p>
+        </form>
       </section>
     </main>
 
     <footer>
       <div class="footer-inner">
         <p>© <span id="year"></span> Advogue.ai</p>
-        <p>Triagem jurídica. Em breve.</p>
+        <p>Publicação → interpretação → ação. Você aprova.</p>
       </div>
     </footer>
 
