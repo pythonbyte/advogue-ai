@@ -14,6 +14,19 @@
     if (kind) hint.classList.add(kind);
   }
 
+  function payload(value) {
+    if (endpoint.includes("formsubmit.co")) {
+      return {
+        email: value,
+        _subject: "Lista de espera Advogue.ai",
+        _template: "table",
+        _captcha: "false",
+        source: "advogue.ai",
+      };
+    }
+    return { email: value, source: "advogue.ai" };
+  }
+
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
     const value = String(email.value || "").trim().toLowerCase();
@@ -22,8 +35,8 @@
       email.focus();
       return;
     }
-      if (!endpoint || endpoint.includes("YOUR_EMAIL")) {
-      setHint("Configure o e-mail da lista em config.js.", "err");
+    if (!endpoint || endpoint.includes("YOUR_EMAIL")) {
+      setHint("A lista ainda não está ligada. Tente de novo em breve.", "err");
       return;
     }
 
@@ -36,19 +49,13 @@
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          email: value,
-          _subject: "Lista de espera Advogue.ai",
-          _template: "table",
-          _captcha: "false",
-          source: "advogue.ai",
-        }),
+        body: JSON.stringify(payload(value)),
       });
       if (!response.ok) {
         throw new Error("HTTP " + response.status);
       }
       form.reset();
-      setHint("Você está na lista. Avisamos quando abrir o piloto.", "ok");
+      setHint("Você está na lista. Avisamos quando abrir vaga no piloto.", "ok");
     } catch (err) {
       setHint("Não foi possível enviar agora. Tente de novo em instantes.", "err");
     } finally {
