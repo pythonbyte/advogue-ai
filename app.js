@@ -22,8 +22,8 @@
       email.focus();
       return;
     }
-    if (!endpoint) {
-      setHint("Lista de espera ainda não configurada.", "err");
+      if (!endpoint || endpoint.includes("YOUR_EMAIL")) {
+      setHint("Configure o e-mail da lista em config.js.", "err");
       return;
     }
 

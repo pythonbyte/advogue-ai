@@ -1,4 +1,4 @@
-/* Lista de espera: FormSubmit envia para este e-mail (confirme o primeiro envio). */
+/* Lista de espera: FormSubmit envia para o e-mail abaixo (confirme o primeiro envio). */
 window.ADVOGUE = {
-  waitlistEndpoint: "https://formsubmit.co/ajax/eduardo.chiarotti@mia.inc",
+  waitlistEndpoint: "https://formsubmit.co/ajax/YOUR_EMAIL",
 };
